@@ -1,0 +1,506 @@
+/* Vzhled podobny phpMyAdmin (motiv pmahomme) pro Adminer 6.3 - pouze svetly rezim
+ * License: Apache License 2.0 or GNU GPL 2 (one or other) - same as Adminer
+ */
+
+html {
+	--bg: #fff;
+	--fg: #000;
+	--dim: #e5e5e5;
+	--lit: #ced6df;
+	--pma-link: #235a81;
+	--pma-nav: #f3f3f3;
+	--pma-border: #aaa;
+}
+
+body {
+	font: 82%/1.4 Arial, Helvetica, sans-serif;
+	color: #333;
+	background: #fff;
+}
+
+/* ---------- odkazy ---------- */
+a, a:visited, button.link { color: var(--pma-link); }
+a:link:hover, a:visited:hover, button.link:hover { color: var(--pma-link); text-decoration: underline; }
+
+/* ---------- logo v levem panelu ---------- */
+h1 {
+	background: transparent;
+	border-bottom: 1px solid #ccc;
+	color: #777;
+	font-size: 170%;
+	text-align: center;
+	padding: .6em .5em .5em;
+}
+#h1 { color: var(--pma-link); font-style: italic; font-weight: bold; }
+#logo { width: 32px; height: 32px; margin-inline-end: .2em; }
+.version { display: block; font-size: 50%; color: #999; }
+
+/* ---------- nadpis stranky jako seda lista ---------- */
+h2 {
+	margin: 0 0 1em;
+	margin-inline-start: 0;
+	padding: .3em .6em;
+	font-size: 150%;
+	font-weight: normal;
+	color: #fff;
+	text-shadow: 0 1px 1px #555;
+	background: linear-gradient(#a5a5a5, #cdcdcd);
+	border: 1px solid #aaa;
+	border-radius: 3px;
+	box-shadow: 0 1px 3px #bbb;
+}
+h2 a, h2 a:visited { color: #fff; }
+h3 { color: #444; font-weight: bold; font-size: 115%; }
+
+/* ---------- horni lista "Server: ... > Databaze: ..." ---------- */
+#breadcrumb {
+	right: 0;
+	height: 2em;
+	line-height: 2em;
+	padding: 0 1em;
+	background: linear-gradient(#999, #777);
+	color: #fff;
+	text-shadow: 0 1px 0 #000;
+}
+#breadcrumb a, #breadcrumb a:visited { color: #fff; }
+#breadcrumb a:hover { color: #fff; text-decoration: underline; }
+
+/* ---------- odkazy jako tlacitka ---------- */
+.links a {
+	display: inline-block;
+	margin: .15em 0;
+	margin-inline-end: .3em;
+	padding: .3em .9em;
+	border: 1px solid var(--pma-border);
+	border-radius: 5px;
+	background: linear-gradient(#fff, #e6e6e6);
+	text-shadow: 0 1px 0 #fff;
+}
+.links a:link:hover, .links a:visited:hover {
+	background: #fff;
+	border-color: #888;
+	text-decoration: none;
+}
+
+/* hlavni odkazy stranky jako lista zalozek (Databaze | SQL | Stav ...) */
+#content > p.links {
+	display: flex;
+	flex-wrap: wrap;
+	margin: -.4em 0 1.2em;
+	padding: 0;
+	background: linear-gradient(#fff, #dcdcdc);
+	border: 1px solid #ccc;
+	border-bottom-color: #aaa;
+	border-radius: 3px;
+}
+#content > p.links a {
+	margin: 0;
+	padding: .55em 1.1em;
+	border: 0;
+	border-inline-end: 1px solid #ccc;
+	border-radius: 0;
+	background: none;
+	font-weight: bold;
+}
+#content > p.links a:link:hover, #content > p.links a:visited:hover {
+	background: #fff;
+	text-decoration: none;
+}
+
+/* ---------- tabulky ---------- */
+table { font-size: 100%; }
+table, td, th { border-color: #fff; }
+.column { border-color: var(--pma-border); }
+td, th { padding: .25em .5em; }
+th { background: transparent; color: #333; }
+
+thead th, thead td {
+	background: linear-gradient(#fff, #ccc);
+	color: #333;
+	text-shadow: 0 1px 0 #fff;
+}
+
+table:not(.layout) > tbody > tr:nth-child(2n),
+.odds tbody tr:nth-child(2n) { background: #dfdfdf; }
+
+tbody tr:hover td, tbody tr:hover th { background: linear-gradient(#e2e8ee, #ced6df); }
+table.layout tbody tr:hover td, table.layout tbody tr:hover th { background: none; }
+
+.js .checkable .checked td, .js .checkable .checked th { background: linear-gradient(#ced6df, #b6c6d7); }
+
+/* ---------- ramecky formularu ---------- */
+fieldset {
+	background: #eee;
+	border: 1px solid var(--pma-border);
+	border-radius: 4px;
+	box-shadow: inset 1px 1px 2px #fff;
+	padding: .6em .9em .7em;
+	text-shadow: 0 1px 0 #fff;
+}
+legend {
+	font-weight: bold;
+	color: #444;
+	background: #fff;
+	border: 1px solid var(--pma-border);
+	border-radius: 2px;
+	padding: 2px 8px;
+	box-shadow: 2px 2px 8px #bbb;
+}
+
+/* ---------- tlacitka ---------- */
+input[type="submit"], input[type="button"], input[type="reset"], button:not(.link):not(.icon) {
+	font: inherit;
+	color: #111;
+	background: linear-gradient(#fff, #ccc);
+	border: 1px solid var(--pma-border);
+	border-radius: 20px;
+	padding: 3px 10px;
+	margin: 1px 3px;
+	cursor: pointer;
+	text-shadow: 0 1px 0 #fff;
+}
+input[type="submit"]:hover, input[type="button"]:hover, input[type="reset"]:hover, button:not(.link):not(.icon):hover {
+	background: linear-gradient(#fff, #ddd);
+}
+input[type="submit"]:active, input[type="button"]:active, input[type="reset"]:active, button:not(.link):not(.icon):active {
+	background: linear-gradient(#ccc, #fff);
+}
+
+/* ---------- vstupni pole ---------- */
+input:not([type]), input[type="text"], input[type="search"], input[type="number"], input[type="password"],
+input[type="email"], input[type="url"], input[type="date"], input[type="datetime-local"], input[type="time"],
+select, textarea {
+	color: #333;
+	background: #fff;
+	border: 1px solid var(--pma-border);
+	border-radius: 2px;
+	padding: 2px 4px;
+}
+select { padding: 1px 2px; }
+input:not([type]):focus, input[type="text"]:focus, input[type="search"]:focus, input[type="number"]:focus,
+input[type="password"]:focus, select:focus, textarea:focus {
+	outline: none;
+	border-color: var(--pma-link);
+	box-shadow: 0 0 3px var(--pma-link);
+}
+.jush { --border-color: #aaa; }
+[contenteditable].jush { border-radius: 2px; background: #fff; }
+
+/* ---------- hlaseni ---------- */
+.message {
+	color: #000;
+	background: #ebf8a4;
+	border: 1px solid #a2d246;
+	border-radius: 5px;
+	box-shadow: inset 0 1px 1px #fff;
+}
+.error {
+	color: #c00;
+	background: #ffebeb;
+	border: 1px solid #e3a0a0;
+	border-radius: 5px;
+}
+td .error { border-radius: 2px; }
+
+/* ---------- ikony ---------- */
+.icon { background-color: var(--pma-link); }
+
+/* ---------- levy navigacni panel ---------- */
+#menu p, #logins, #tables { border-bottom: 1px solid #ddd; }
+#dbs { text-align: center; }
+#dbs select { width: 85%; }
+#menu p.links { text-align: center; }
+#menu p.links a { padding: .1em .5em; margin: .15em .1em; font-size: 92%; }
+
+#logins a, #tables a, #tables span { background: transparent; }
+#logins li { padding: 1px 3px; border-radius: 3px; }
+#logins li:hover { background: #dde3e9; }
+
+/* seznam tabulek jako strom */
+#tables li {
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: .35em;
+	padding: 2px 4px 2px 16px;
+}
+#tables li::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 11px;
+	border-top: 1px dotted #888;
+}
+#tables li::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	border-left: 1px dotted #888;
+}
+#tables li:last-child::after { bottom: 50%; }
+#tables li:hover { background: #dde3e9; }
+#tables .active { color: #000; }
+
+/* odkaz "vypsat" jako ikonka tabulky */
+#tables a.select {
+	flex: none;
+	width: 16px;
+	height: 16px;
+	font-size: 0;
+	color: transparent;
+	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='1.5' y='2.5' width='13' height='11' rx='1' fill='%23fff' stroke='%23778899'/%3E%3Crect x='2' y='3' width='12' height='3' fill='%23aabbcc'/%3E%3Cpath d='M2 9h12M2 11.5h12M6 6v7M10 6v7' stroke='%23aab4be' stroke-width='.8'/%3E%3C/svg%3E") center / 16px no-repeat;
+}
+#tables a.select:hover { filter: brightness(.85); }
+#tables a.select.active { outline: 1px solid var(--pma-link); outline-offset: 1px; border-radius: 2px; }
+
+/* ---------- ikony pod logem (plugin nav-icons.php) ---------- */
+#menu #navicons {
+	display: flex;
+	justify-content: center;
+	gap: 6px;
+	margin: 0;
+	padding: .4em 1em .2em;
+	border-bottom: 0;
+}
+.navicon {
+	display: block;
+	width: 18px;
+	height: 18px;
+	border-radius: 3px;
+	background: center / 16px no-repeat;
+}
+.navicon span { display: none; }
+.navicon:link:hover, .navicon:visited:hover { background-color: #dde3e9; box-shadow: 0 0 0 1px #aab; }
+.navicon-home {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 1.5 1 8h2v6.5h4v-4h2v4h4V8h2z' fill='%23e8a33c' stroke='%23955f12' stroke-linejoin='round'/%3E%3Crect x='7' y='10.5' width='2' height='4' fill='%23955f12'/%3E%3Crect x='11' y='2.5' width='1.8' height='3' fill='%23b33' /%3E%3C/svg%3E");
+}
+.navicon-logout {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2.5 1.5h7v13h-7z' fill='%23c9a46a' stroke='%237a5a26'/%3E%3Ccircle cx='8' cy='8.5' r='.8' fill='%237a5a26'/%3E%3Cpath d='M10 8h5M12.5 5.5 15 8l-2.5 2.5' fill='none' stroke='%23c33' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+.navicon-help {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='6.8' fill='%235b8fd6' stroke='%232a5a9e'/%3E%3Cpath d='M6 6.2a2 2 0 1 1 2.8 1.8c-.6.3-.8.6-.8 1.3v.5' fill='none' stroke='%23fff' stroke-width='1.5' stroke-linecap='round'/%3E%3Ccircle cx='8' cy='11.7' r='.9' fill='%23fff'/%3E%3C/svg%3E");
+}
+.navicon-docs {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 1.5h7l3 3v10H3z' fill='%23fff' stroke='%23778'/%3E%3Cpath d='M10 1.5v3h3' fill='%23dde' stroke='%23778'/%3E%3Cpath d='M5 7h6M5 9h6M5 11h4' stroke='%2399a' /%3E%3C/svg%3E");
+}
+.navicon-settings {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cg transform='translate(8 8)' fill='%23999' stroke='%23666' stroke-width='.6'%3E%3Cpath d='M-1.2-7h2.4l.4 2 1.7.9 1.9-.9 1.7 1.7-.9 1.9.9 1.7 2 .4v2.4l-2 .4-.9 1.7.9 1.9-1.7 1.7-1.9-.9-1.7.9-.4 2h-2.4l-.4-2-1.7-.9-1.9.9-1.7-1.7.9-1.9-.9-1.7-2-.4v-2.4l2-.4.9-1.7-.9-1.9 1.7-1.7 1.9.9 1.7-.9z'/%3E%3C/g%3E%3Ccircle cx='8' cy='8' r='2.2' fill='%23fff' stroke='%23666' stroke-width='.6'/%3E%3C/svg%3E");
+}
+.navicon-reload {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M13 8a5 5 0 1 1-1.5-3.55' fill='none' stroke='%233a9a3a' stroke-width='2.2' stroke-linecap='round'/%3E%3Cpath d='M9.3 1.3 13.8 1.6 13.2 6z' fill='%233a9a3a'/%3E%3C/svg%3E");
+}
+
+/* ---------- Aktualni server (plugin server-select.php) ---------- */
+#serverselect {
+	padding: .6em 1em .8em;
+	text-align: center;
+	border-bottom: 1px solid #ddd;
+}
+#serverselect label { display: block; margin-bottom: .3em; }
+#serverselect select { width: 85%; padding: 3px 4px; }
+
+/* ---------- strom databazi (plugin database-tree.php) ---------- */
+/* rozbalovaci vyber DB nahrazuje strom; vyber schematu (MS SQL) zustava */
+#menu:has(#dbtree) #dbs label:has(select[name="db"]) { display: none; }
+#menu:has(#dbtree) #dbs:not(:has(select[name="ns"])) { display: none; }
+#menu:has(#dbtree) #dbs br { display: none; }
+
+#dbtree {
+	margin: 0;
+	padding: .5em .5em .8em;
+	list-style: none;
+	white-space: nowrap;
+}
+#dbtree > li { list-style: none; position: relative; }
+#dbtree > li > a {
+	position: relative;
+	display: block;
+	padding: 2px 4px 2px 38px;
+	border-radius: 3px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cellipse cx='8' cy='3.5' rx='5.5' ry='2' fill='%23dde6ee' stroke='%23778899'/%3E%3Cpath d='M2.5 3.5v9c0 1.1 2.5 2 5.5 2s5.5-.9 5.5-2v-9' fill='%23dde6ee' stroke='%23778899'/%3E%3Cpath d='M2.5 6.5c0 1.1 2.5 2 5.5 2s5.5-.9 5.5-2M2.5 9.5c0 1.1 2.5 2 5.5 2s5.5-.9 5.5-2' fill='none' stroke='%23778899' stroke-width='.8'/%3E%3C/svg%3E") 18px center / 15px no-repeat;
+}
+#dbtree .dbtoggle {
+	position: absolute;
+	z-index: 1;
+	left: 3px;
+	top: calc(.7em + 2px);
+	width: 9px;
+	height: 9px;
+	margin-top: -5px;
+	border: 1px solid #888;
+	background: #fff;
+	cursor: pointer;
+}
+#dbtree .dbtoggle::before {
+	content: "+";
+	display: block;
+	color: #333;
+	font: bold 9px/9px Arial, sans-serif;
+	text-align: center;
+}
+#dbtree > li.current:not(.collapsed) > .dbtoggle::before { content: "\2212"; }
+#dbtree .dbtoggle:hover { border-color: var(--pma-link); background: #dde3e9; }
+#dbtree > li.collapsed > #tables, #dbtree > li.collapsed > p.message { display: none; }
+#dbtree > li > a:link:hover, #dbtree > li > a:visited:hover { background-color: #dde3e9; text-decoration: none; }
+#dbtree > li.current > a { font-weight: bold; color: #000; }
+#dbtree > li.system > a { color: #888; font-style: italic; }
+#dbtree > li.system:first-of-type, #dbtree > li:not(.system) + li.system { margin-top: .6em; padding-top: .4em; border-top: 1px dotted #bbb; }
+
+/* tabulky zanorene pod aktualni databazi */
+#dbtree #tables, #dbtree > li > p.message {
+	margin: 0 0 .3em 8px;
+	padding: 0 0 0 12px;
+	border: 0;
+}
+#dbtree > li > p.message { padding: .2em .5em; font-size: 92%; }
+
+/* rozlozeni na sirsich obrazovkach: panel pres celou vysku jako v phpMyAdmin */
+@media not all and (max-width: 800px) {
+	#menu {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		width: 19em;
+		margin: 0;
+		overflow: auto;
+		box-sizing: border-box;
+		background: linear-gradient(to right, var(--pma-nav) 90%, #e1e1e1);
+		border-right: 1px solid #ccc;
+	}
+	#lang { position: static; }
+	#breadcrumb { left: 19em; margin: 0; }
+	#content { margin-inline-start: 19em; padding-inline-start: 20px; }
+
+	.logout {
+		margin: 0;
+		top: 0;
+		right: 0;
+		height: 2em;
+		line-height: 2em;
+		padding: 0 1em;
+		background: transparent;
+		box-shadow: none;
+		color: #fff;
+		text-shadow: 0 1px 0 #000;
+		z-index: 2;
+	}
+	.logout input[type="submit"] { padding: 0 10px; margin: 0; margin-inline-start: .5em; font-size: 90%; line-height: 1.5; }
+}
+
+/* =====================================================================
+   Prihlasovaci stranka - vycentrovany formular jako v phpMyAdmin
+   ===================================================================== */
+body:has(input[name="auth[password]"]) {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 2em 1em 3em;
+}
+body:has(input[name="auth[password]"]) #foot {
+	order: -1;
+	display: block;
+	position: static;
+	width: 100%;
+	max-width: 32em;
+}
+body:has(input[name="auth[password]"]) #menu {
+	position: static;
+	width: auto;
+	min-width: 0;
+	margin: 0;
+	overflow: visible;
+	background: none;
+	border: 0;
+	box-shadow: none;
+}
+body:has(input[name="auth[password]"]) #menu h1 { border: 0; font-size: 260%; padding: .2em 0 0; }
+body:has(input[name="auth[password]"]) #logo { width: 56px; height: 56px; }
+body:has(input[name="auth[password]"]) #logins { display: none; }
+body:has(input[name="auth[password]"]) #menuopen { display: none; }
+
+body:has(input[name="auth[password]"]) #content {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	max-width: 32em;
+}
+body:has(input[name="auth[password]"]) h2 {
+	font-size: 0;
+	padding: .2em 0 1.2em;
+	margin: 0;
+	text-align: center;
+	background: none;
+	border: 0;
+	box-shadow: none;
+	text-shadow: none;
+}
+body:has(input[name="auth[password]"]) h2::before {
+	content: "Vítejte v Admineru";
+	font-size: 1.3rem;
+	font-weight: bold;
+	color: #333;
+}
+body:has(input[name="auth[password]"]) .error,
+body:has(input[name="auth[password]"]) .message { margin-inline-end: 0; margin-bottom: 1.4em; }
+
+/* ramecek "Prihlaseni" */
+body:has(input[name="auth[password]"]) #content form[method="post"] {
+	position: relative;
+	margin-top: 1em;
+	padding: 1.8em 1em 0;
+	background: #eee;
+	border: 1px solid var(--pma-border);
+	border-radius: 4px;
+	box-shadow: inset 1px 1px 2px #fff;
+}
+body:has(input[name="auth[password]"]) #content form[method="post"]::before {
+	content: "Přihlášení";
+	position: absolute;
+	top: -.9em;
+	left: .8em;
+	font-weight: bold;
+	color: #444;
+	background: #fff;
+	border: 1px solid var(--pma-border);
+	border-radius: 2px;
+	padding: 3px 10px;
+	box-shadow: 2px 2px 8px #bbb;
+}
+body:has(input[name="auth[password]"]) table.layout { width: 100%; margin: 0; border: 0; }
+body:has(input[name="auth[password]"]) table.layout th,
+body:has(input[name="auth[password]"]) table.layout td {
+	border: 0;
+	padding: .45em .3em;
+	vertical-align: middle;
+	background: none;
+}
+body:has(input[name="auth[password]"]) table.layout th { width: 35%; font-weight: normal; color: #333; }
+body:has(input[name="auth[password]"]) table.layout input,
+body:has(input[name="auth[password]"]) table.layout select {
+	width: 100%;
+	padding: 5px 7px;
+}
+
+/* spodni lista s tlacitkem */
+body:has(input[name="auth[password]"]) #content form[method="post"] > p {
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1em;
+	margin: 1.2em -1em 0;
+	padding: .6em 1em;
+	background: #d3dce3;
+	border-top: 1px solid var(--pma-border);
+	border-radius: 0 0 4px 4px;
+}
+body:has(input[name="auth[password]"]) #content form[method="post"] > p input[type="submit"] {
+	padding: 4px 14px;
+	margin: 0;
+}
